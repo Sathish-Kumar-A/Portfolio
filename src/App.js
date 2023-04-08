@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Layout from './Components/Layout';
+import Home from './Components/Home';
+import About from './Components/About';
+import Experience from './Components/Experience';
+import Projects from './Components/Projects';
+import { useStore } from './Components/hooks/context';
 
 function App() {
+  const [{ colors }] = useStore();
+  const { bgColor, textColor } = colors;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`${bgColor} ${textColor}`}>
+    <Routes>
+      <Route path='/' element={<Navigate to={"/home"} replace/>} />
+      <Route path='/home' element={<Layout><Home /></Layout>} />
+      <Route path='/about' element={<Layout><About /></Layout>} />
+      <Route path='/experience' element={<Layout><Experience /></Layout>} />
+      <Route path='/projects' element={<Layout><Projects /></Layout>} />
+    </Routes>
     </div>
   );
 }
