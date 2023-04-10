@@ -9,11 +9,11 @@ const Home = () => {
     <div className="py-10 space-y-6">
       <div className="lg:w-7/12 space-y-4 ">
         <img src={logo} alt="profileImage" className="h-[70px]" />
-        <h1 className="text-5xl font-bold leading-snug">{HOME_JSON.main}</h1>
-      <p className="leading-loose text-gray-500">{HOME_JSON.sub}</p>
+        <h1 className="text-3xl lg:text-5xl font-bold leading-relaxed lg:leading-snug">{HOME_JSON.main}</h1>
+        <p className="leading-loose text-gray-500">{HOME_JSON.sub}</p>
       </div>
-          <SocialNetworks />
-          <Work />
+      <SocialNetworks />
+      <Work />
       <Education />
     </div>
   );
@@ -80,7 +80,7 @@ const Work = () => {
         </div>
         <div>
           {companies.map((comp, index) => (
-            <div key={index} className="border my-3 p-3 space-y-2">
+            <div key={index} className="border rounded-md my-3 p-3 space-y-2">
               <h3 className="text-xl font-semibold">{comp.role}</h3>
               <h4 className="text-md">{comp.name}</h4>
               <p className="text-sm text-gray-400">{comp.location}</p>
@@ -121,7 +121,7 @@ const Education = () => {
         </h4>
         <div>
           {eduStages.map((edu, index) => (
-            <div key={index} className="border space-y-2  my-3 p-3">
+            <div key={index} className="border rounded-md space-y-2  my-3 p-3">
               <h4 className="text-lg font-semibold">{edu.name}</h4>
               <p className="text-gray-500 text-md">{edu.degree}</p>
               <p className="text-gray-500 text-md">{edu.year}</p>
